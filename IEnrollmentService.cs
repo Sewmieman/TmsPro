@@ -6,6 +6,7 @@ public interface IEnrollmentService
 Task<EnrollmentRecord> EnrollAsync(string studentId, string courseCode);
 Task<EnrollmentRecord?> GetByIdAsync(string id);
 Task<IReadOnlyList<EnrollmentRecord>> GetAllAsync();
+   
 Task<bool> DeleteAsync(string id);
 }
 //--- The in-memory implementation--
@@ -50,3 +51,4 @@ string StudentId,
 string CourseCode,
 DateTime EnrolledAt);
 // These registrations are given do NOT change them:
+public class TmsDatabaseException(string message) : Exception(message);
